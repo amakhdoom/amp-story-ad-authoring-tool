@@ -1,16 +1,14 @@
 <div class="ad-authoring">
-    <form>
-        <mat-form-field>
-            <mat-label>Landing Page URL</mat-label>
-            <input type="text" #landingUrl placeholder="Landing Page URL"/>
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-            <mat-label>Landing Page Type</mat-label>
-            <input type="text" #landingType placeholder="Landing Page Type"/>
-        </mat-form-field>
-    </form>
-    
+    <br>
+    <mat-form-field>
+        <mat-label>Landing Page URL</mat-label>
+        <input matInput type="text" #landingUrl placeholder="Landing Page URL"/>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Landing Page Type</mat-label>
+        <input matInput type="text" #landingType placeholder="Landing Page Type"/>
+    </mat-form-field>
     <br>
     <select #callToAction>
         <option value="Shop Now">Shop Now</option>

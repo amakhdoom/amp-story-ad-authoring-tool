@@ -19,6 +19,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 import {AppComponent} from './app.component';
 import { AdAuthoringComponent } from './ad-authoring/ad-authoring.component';
@@ -28,7 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, AdAuthoringComponent, TopBarComponent],
-  imports: [BrowserModule, FormsModule, BrowserAnimationsModule, MatInputModule],
+  imports: [BrowserModule, FormsModule, BrowserAnimationsModule, MatInputModule, MatFormFieldModule],
+  exports: [MatInputModule, MatFormFieldModule],
   providers: [AdAuthoringService],
   bootstrap: [AppComponent]
 })
