@@ -10,11 +10,17 @@
         <input matInput type="text" #landingType placeholder="Landing Page Type"/>
     </mat-form-field>
     <br>
-    <select #callToAction>
-        <option value="Shop Now">Shop Now</option>
-        <option value="Apply Now">Apply Now</option>
-        <option value="Book Now">Book Now</option>
-    </select>
+    <mat-form-field>
+        <mat-label>Call to Action Text</mat-label>
+        <!-- <mat-select #callToAction>
+            <mat-option *ngFor="let text of texts" [value]="text.value" >
+                {{text.value}}
+            </mat-option>
+        </mat-select> -->
+        <select matNativeControl required #callToAction>
+            <option *ngFor="let text of texts" [value]="text.value">{{text.value}}</option>
+        </select>
+    </mat-form-field>
     <br>
     <button (click)="addAdAuthoring(landingUrl.value, landingType.value, callToAction.value)">Generate AMPHTML</button>
 </div>
