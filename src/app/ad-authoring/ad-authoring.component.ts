@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AdAuthoringService } from './ad-authoring.service'
-import { AdAuthoring } from './ad-authoring';
+import { AdAuthoring } from './ad-authoring.state';
 import { Observable } from 'rxjs';
 
 interface Text {

@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Observable, BehaviorSubject} from 'rxjs';
-import {AdAuthoring} from './ad-authoring';
+// import {AdAuthoring} from './ad-authoring';
+
+export interface AdAuthoring {
+  readonly landingUrl: string;
+  readonly landingType: string;
+  readonly callToAction: string;
+}
 
 export interface AdAuthoringState {
   readonly adAuthorings: ReadonlyArray<AdAuthoring>;

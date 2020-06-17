@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AdAuthoring } from './ad-authoring';
+import { AdAuthoring } from './ad-authoring.state';
 import { AdAuthoringStateContainer } from './ad-authoring.state';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
