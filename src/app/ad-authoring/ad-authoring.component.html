@@ -1,29 +1,36 @@
 <div class="ad-authoring">
     <br>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Text
+            </mat-panel-title>
+        </mat-expansion-panel-header>
 
-    <mat-form-field>
-        <mat-label>Landing Page URL</mat-label>
-        <input matInput type="text" #landingUrl placeholder="Landing Page URL"/>
-    </mat-form-field>
+        <mat-form-field>
+            <mat-label>Landing Page URL</mat-label>
+            <input matInput type="text" #landingUrl placeholder="Landing Page URL"/>
+        </mat-form-field>
+    
+        <br>
+    
+        <mat-form-field>
+            <mat-label>Landing Page Type</mat-label>
+            <input matInput type="text" #landingType placeholder="Landing Page Type"/>
+        </mat-form-field>
 
-    <br>
+        <br>
 
-    <mat-form-field>
-        <mat-label>Landing Page Type</mat-label>
-        <input matInput type="text" #landingType placeholder="Landing Page Type"/>
-    </mat-form-field>
-
-    <br>
-
-    <mat-form-field>
-        <mat-label>Call to Action Text</mat-label>
-        <mat-select #callToAction>
-            <mat-option *ngFor="let text of texts" [value]="CallToActionMapping[text]" >
-                {{CallToActionMapping[text]}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-
+        <mat-form-field>
+            <mat-label>Call to Action Text</mat-label>
+            <mat-select #callToAction>
+                <mat-option *ngFor="let text of texts" [value]="CallToActionMapping[text]" >
+                    {{CallToActionMapping[text]}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-expansion-panel>
+    
     <br>
 
     <!-- TODO: Create new component for this button -->
