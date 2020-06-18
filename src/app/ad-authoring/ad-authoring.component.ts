@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 import { AdAuthoringService } from './ad-authoring.service'
-import { AdAuthoring } from './ad-authoring.state';
+import { AdAuthoringState } from './ad-authoring.state';
 import { Observable } from 'rxjs';
-
-interface Text {
-  value: string;
-}
+import { CallToActionEnum, CallToActionMapping } from './call-to-action';
 
 @Component({
   selector: 'app-ad-authoring',
@@ -14,31 +11,11 @@ interface Text {
 })
 export class AdAuthoringComponent {
 
-  texts: Text[] = [
-    {value: "Apply Now"},
-    {value: "Book"},
-    {value: "Buy Tickets"},
-    {value: "Download"},
-    {value: "Explore Now"},
-    {value: "Get Now"},
-    {value: "Install Now"},
-    {value: "Listen Now"},
-    {value: "More"},
-    {value: "Open App"},
-    {value: "Order Now"},
-    {value: "Play"},
-    {value: "Read Now"},
-    {value: "Shop Now"},
-    {value: "Showtimes"},
-    {value: "Sign Up"},
-    {value: "Subscribe Now"},
-    {value: "Use App"},
-    {value: "View"},
-    {value: "Watch"},
-    {value: "Watch Episode"}
-  ];
+  public CallToActionMapping = CallToActionMapping;
 
-  adAuthoringObs: Observable<ReadonlyArray<AdAuthoring>>
+  public texts = Object.values(CallToActionEnum);
+
+  adAuthoringObs: Observable<AdAuthoringState>
 
   constructor(private service: AdAuthoringService) {
     this.adAuthoringObs = service.getAdAuthorings();

@@ -17,14 +17,11 @@
 
     <mat-form-field>
         <mat-label>Call to Action Text</mat-label>
-        <!-- <mat-select #callToAction>
-            <mat-option *ngFor="let text of texts" [value]="text.value" >
-                {{text.value}}
+        <mat-select #callToAction>
+            <mat-option *ngFor="let text of texts" [value]="CallToActionMapping[text]" >
+                {{CallToActionMapping[text]}}
             </mat-option>
-        </mat-select> -->
-        <select matNativeControl required #callToAction>
-            <option *ngFor="let text of texts" [value]="text.value">{{text.value}}</option>
-        </select>
+        </mat-select>
     </mat-form-field>
 
     <br>
@@ -33,8 +30,8 @@
     <button (click)="addAdAuthoring(landingUrl.value, landingType.value, callToAction.value)">Generate AMPHTML</button>
 </div>
 
-<p *ngFor="let adAuthoring of adAuthoringObs | async">
+<div *ngIf="(adAuthoringObs | async) as adAuthoring">
     Landing Page URL: {{adAuthoring.landingUrl}} <br>
     Landing Page Type: {{adAuthoring.landingType}} <br>
     Call to Action Text: {{adAuthoring.callToAction}}
-</p>
+</div>

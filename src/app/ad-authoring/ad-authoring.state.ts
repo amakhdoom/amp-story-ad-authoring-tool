@@ -1,29 +1,20 @@
 import { Injectable } from '@angular/core';
 import {Observable, BehaviorSubject} from 'rxjs';
-// import {AdAuthoring} from './ad-authoring';
 
-export interface AdAuthoring {
-  readonly landingUrl: string;
-  readonly landingType: string;
-  readonly callToAction: string;
-}
-
+//change to workflowstate
 export interface AdAuthoringState {
-  readonly adAuthorings: ReadonlyArray<AdAuthoring>;
+  readonly landingUrl?: string;
+  readonly landingType?: string;
+  readonly callToAction?: string;
 }
-
+// add a default state for the fields above
 @Injectable({
   providedIn: 'root'
 })
 export class AdAuthoringStateContainer {
 
-    private state$: BehaviorSubject<AdAuthoringState>;
-
-    protected constructor () {
-        this.state$ = new BehaviorSubject({
-          adAuthorings: [],
-        });
-    }
+    private state$: BehaviorSubject<AdAuthoringState> = new BehaviorSubject({
+    });
 
     getValue(): AdAuthoringState {
         return this.state$.getValue();
