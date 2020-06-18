@@ -34,7 +34,7 @@
     <br>
 
     <!-- TODO: Create new component for this button -->
-    <button (click)="addAdAuthoring(landingUrl.value, landingType.value, callToAction.value)">Generate AMPHTML</button>
+    <button mat-raised-button color="primary" (click)="addAdAuthoring(landingUrl.value, landingType.value, callToAction.value)">Generate AMPHTML</button>
 </div>
 
 <div *ngIf="(adAuthoringObs | async) as adAuthoring">
