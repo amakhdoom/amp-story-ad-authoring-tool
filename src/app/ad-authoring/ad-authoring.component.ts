@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AdAuthoringService } from './ad-authoring.service'
+import { AdAuthoringService } from './ad-authoring.service';
 import { AdAuthoringWorkflowState } from './ad-authoring.state';
 import { Observable } from 'rxjs';
 import { CallToActionEnum, CallToActionMapping } from './call-to-action';
@@ -15,7 +15,7 @@ export class AdAuthoringComponent {
 
   public texts = Object.values(CallToActionEnum);
 
-  adAuthoringObs: Observable<AdAuthoringWorkflowState>
+  adAuthoringObs: Observable<AdAuthoringWorkflowState>;
 
   constructor(private service: AdAuthoringService) {
     this.adAuthoringObs = service.getAdAuthorings();
