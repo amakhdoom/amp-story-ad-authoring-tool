@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AdAuthoringState, AdAuthoringStateContainer } from './ad-authoring.state';
+import { AdAuthoringWorkflowState, AdAuthoringWorkflowStateContainer } from './ad-authoring.state';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 })
 export class AdAuthoringService {
 
-  constructor(private readonly adAuthoringState: AdAuthoringStateContainer) {}
+  constructor(private readonly adAuthoringState: AdAuthoringWorkflowStateContainer) {}
 
   addAdAuthoring(landingUrl: string, landingType: string, callToAction: string) {
     this.adAuthoringState.setState({
@@ -15,7 +15,7 @@ export class AdAuthoringService {
     });
   }
 
-  getAdAuthorings(): Observable<AdAuthoringState> {
+  getAdAuthorings(): Observable<AdAuthoringWorkflowState> {
     return this.adAuthoringState.getState();
   }
 }

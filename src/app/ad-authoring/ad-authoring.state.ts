@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable, BehaviorSubject} from 'rxjs';
 
 //change to workflowstate
-export interface AdAuthoringState {
+export interface AdAuthoringWorkflowState {
   readonly landingUrl?: string;
   readonly landingType?: string;
   readonly callToAction?: string;
@@ -11,20 +11,20 @@ export interface AdAuthoringState {
 @Injectable({
   providedIn: 'root'
 })
-export class AdAuthoringStateContainer {
+export class AdAuthoringWorkflowStateContainer {
 
-    private state$: BehaviorSubject<AdAuthoringState> = new BehaviorSubject({
+    private state$: BehaviorSubject<AdAuthoringWorkflowState> = new BehaviorSubject({
     });
 
-    getValue(): AdAuthoringState {
+    getValue(): AdAuthoringWorkflowState {
         return this.state$.getValue();
     }
 
-    getState(): Observable<AdAuthoringState> {
+    getState(): Observable<AdAuthoringWorkflowState> {
       return this.state$.asObservable();
     }
 
-    setState(nextState: AdAuthoringState): void {
+    setState(nextState: AdAuthoringWorkflowState): void {
         this.state$.next(nextState);
     }
 }
