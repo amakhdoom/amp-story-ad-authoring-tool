@@ -19,7 +19,12 @@ describe('TopBarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create top bar component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have text in div element', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('div').textContent).toContain('AMP Story Ad Authoring!');
   });
 });
