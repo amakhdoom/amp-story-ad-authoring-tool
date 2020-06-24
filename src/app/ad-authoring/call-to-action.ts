@@ -45,3 +45,5 @@ export const CallToActionMapping: Record<CallToActionEnum, string> = {
     [CallToActionEnum.WATCH]: 'Watch',
     [CallToActionEnum.WATCH_EPISODE]: 'Watch Episode'
 } as const;
+
+//add a helper function here

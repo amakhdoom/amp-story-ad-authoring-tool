@@ -12,7 +12,7 @@ import { CallToActionEnum, CallToActionMapping } from './call-to-action';
 export class AdAuthoringComponent {
 
   public CallToActionMapping = CallToActionMapping;
-
+//change varialbe name
   public texts = Object.values(CallToActionEnum);
 
   adAuthoringObs: Observable<AdAuthoringWorkflowState>;
@@ -21,8 +21,19 @@ export class AdAuthoringComponent {
     this.adAuthoringObs = service.getAdAuthorings();
   }
 
-  addAdAuthoring(landingUrl: string, landingType: string, callToAction: string) {
-    this.service.addAdAuthoring(landingUrl, landingType, callToAction);
+  // addAdAuthoring(landingUrl: string, landingType: string, callToAction: string) {
+  //   this.service.addAdAuthoring(landingUrl, landingType, callToAction);
+  // }
+
+  addLandingUrl(landingUrl: string) {
+    this.service.addLandingUrl(landingUrl);
   }
 
+  addLandingType(landingType: string) {
+    this.service.addLandingType(landingType);
+  }
+
+  addCallToAction(callToAction: string) {
+    this.service.addCallToAction(callToAction);
+  }
 }

@@ -9,14 +9,14 @@
 
         <mat-form-field>
             <mat-label>Landing Page URL</mat-label>
-            <input matInput type="text" #landingUrl placeholder="Landing Page URL"/>
+            <input matInput type="text" #landingUrl placeholder="Landing Page URL" (keyup)="addLandingUrl(landingUrl.value)"/>
         </mat-form-field>
     
         <br>
     
         <mat-form-field>
             <mat-label>Landing Page Type</mat-label>
-            <input matInput type="text" #landingType placeholder="Landing Page Type"/>
+            <input matInput type="text" #landingType placeholder="Landing Page Type" (keyup)="addLandingType(landingType.value)"/>
         </mat-form-field>
 
         <br>
@@ -24,7 +24,7 @@
         <mat-form-field>
             <mat-label>Call to Action Text</mat-label>
             <mat-select #callToAction>
-                <mat-option *ngFor="let text of texts" [value]="CallToActionMapping[text]" >
+                <mat-option *ngFor="let text of texts" [value]="CallToActionMapping[text]" (click)="addCallToAction(callToAction.value)">
                     {{CallToActionMapping[text]}}
                 </mat-option>
             </mat-select>
@@ -43,5 +43,5 @@
 
 <div class="toolbar">
     <!-- TODO: Create new component for this button -->
-    <button mat-raised-button color="primary" (click)="addAdAuthoring(landingUrl.value, landingType.value, callToAction.value)">Generate AMPHTML</button>
+    <button mat-raised-button color="primary">Generate AMPHTML</button>
 </div>

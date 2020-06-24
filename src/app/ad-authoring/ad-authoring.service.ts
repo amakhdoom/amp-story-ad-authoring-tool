@@ -8,10 +8,29 @@ import {Observable} from 'rxjs';
 export class AdAuthoringService {
 
   constructor(private readonly adAuthoringState: AdAuthoringWorkflowStateContainer) {}
+  
+  //split adauthoring into 3 separta
+  // addAdAuthoring(landingUrl: string, landingType: string, callToAction: string) {
+  //   this.adAuthoringState.setState({
+  //     landingUrl, landingType, callToAction
+  //   });
+  // }
 
-  addAdAuthoring(landingUrl: string, landingType: string, callToAction: string) {
+  addLandingUrl(landingUrl: string) {
     this.adAuthoringState.setState({
-      landingUrl, landingType, callToAction
+      ...this.adAuthoringState.getValue(), landingUrl
+    });
+  }
+
+  addLandingType(landingType: string) {
+    this.adAuthoringState.setState({
+      ...this.adAuthoringState.getValue(), landingType
+    });
+  }
+
+  addCallToAction(callToAction: string) {
+    this.adAuthoringState.setState({
+      ...this.adAuthoringState.getValue(), callToAction
     });
   }
 
