@@ -24,8 +24,8 @@
         <mat-form-field>
             <mat-label>Call to Action Text</mat-label>
             <mat-select #callToAction>
-                <mat-option *ngFor="let text of texts" [value]="CallToActionMapping[text]" (click)="addCallToAction(callToAction.value)">
-                    {{CallToActionMapping[text]}}
+                <mat-option *ngFor="let callToActionValue of callToActionValues" [value]="CallToActionMapping[callToActionValue]" (click)="addCallToAction(callToAction.value)">
+                    {{CallToActionMapping[callToActionValue]}}
                 </mat-option>
             </mat-select>
         </mat-form-field>

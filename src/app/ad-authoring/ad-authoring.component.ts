@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AdAuthoringService } from './ad-authoring.service';
 import { AdAuthoringWorkflowState } from './ad-authoring.state';
 import { Observable } from 'rxjs';
-import { CallToActionEnum, CallToActionMapping } from './call-to-action';
+import { CallToActionEnum, CallToActionMapping, sortedCallToAction } from './call-to-action';
 
 @Component({
   selector: 'app-ad-authoring',
@@ -13,7 +13,7 @@ export class AdAuthoringComponent {
 
   public CallToActionMapping = CallToActionMapping;
 //change varialbe name
-  public texts = Object.values(CallToActionEnum);
+  public callToActionValues = sortedCallToAction;
 
   adAuthoringObs: Observable<AdAuthoringWorkflowState>;
 
