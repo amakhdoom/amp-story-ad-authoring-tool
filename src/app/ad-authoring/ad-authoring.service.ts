@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AdAuthoringWorkflowState, AdAuthoringWorkflowStateContainer } from './ad-authoring.state';
 import {Observable} from 'rxjs';
+import { CallToActionEnum } from './call-to-action';
 
 @Injectable({
   providedIn: 'root'
@@ -9,19 +10,19 @@ export class AdAuthoringService {
 
   constructor(private readonly adAuthoringState: AdAuthoringWorkflowStateContainer) {}
 
-  addLandingUrl(landingUrl: string) {
+  updateLandingUrl(landingUrl: string) {
     this.adAuthoringState.setState({
       ...this.adAuthoringState.getValue(), landingUrl
     });
   }
 
-  addLandingType(landingType: string) {
+  updateLandingType(landingType: string) {
     this.adAuthoringState.setState({
       ...this.adAuthoringState.getValue(), landingType
     });
   }
 
-  addCallToAction(callToAction: string) {
+  updateCallToAction(callToAction: CallToActionEnum) {
     this.adAuthoringState.setState({
       ...this.adAuthoringState.getValue(), callToAction
     });

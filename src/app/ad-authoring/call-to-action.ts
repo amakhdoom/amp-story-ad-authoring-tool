@@ -46,8 +46,12 @@ export const CallToActionMapping: Record<CallToActionEnum, string> = {
     [CallToActionEnum.WATCH_EPISODE]: 'Watch Episode'
 } as const;
 
-export const sortedCallToAction = Object.keys(CallToActionEnum).sort();
+function callToActionComparator (cta1: CallToActionEnum, cta2: CallToActionEnum) {
+    if (cta1 < cta2) return -1;
+    if (cta1 > cta2) return 1;
+    return 0;
+}
 
-// function callToActionSort (callToActionEnum) {
+export const sortedCallToAction = Object.keys(CallToActionEnum).sort(callToActionComparator);
+console.log(sortedCallToAction);
 
-// }

@@ -9,22 +9,32 @@
 
         <mat-form-field>
             <mat-label>Landing Page URL</mat-label>
-            <input matInput type="text" #landingUrl placeholder="Landing Page URL" (keyup)="addLandingUrl(landingUrl.value)"/>
+            <input matInput 
+                type="text" 
+                #landingUrl 
+                placeholder="Landing Page URL" 
+                [ngModel] = "landingPageUrl"
+                (ngModelChange)="updateLandingUrl($event)"/>
         </mat-form-field>
     
         <br>
     
         <mat-form-field>
             <mat-label>Landing Page Type</mat-label>
-            <input matInput type="text" #landingType placeholder="Landing Page Type" (keyup)="addLandingType(landingType.value)"/>
+            <input matInput 
+                type="text" 
+                #landingType 
+                placeholder="Landing Page Type" 
+                (change)="updateLandingType(landingType.value)"/>
         </mat-form-field>
 
         <br>
 
         <mat-form-field>
             <mat-label>Call to Action Text</mat-label>
-            <mat-select #callToAction>
-                <mat-option *ngFor="let callToActionValue of callToActionValues" [value]="CallToActionMapping[callToActionValue]" (click)="addCallToAction(callToAction.value)">
+            <mat-select #callToAction (selectionChange)="updateCallToAction($event.value)">
+                <mat-option *ngFor="let callToActionValue of callToActionValues" 
+                    [value]="CallToActionMapping[callToActionValue]">
                     {{CallToActionMapping[callToActionValue]}}
                 </mat-option>
             </mat-select>

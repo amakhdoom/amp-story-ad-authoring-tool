@@ -3,6 +3,7 @@ import { AdAuthoringService } from './ad-authoring.service';
 import { AdAuthoringWorkflowState } from './ad-authoring.state';
 import { Observable } from 'rxjs';
 import { CallToActionEnum, CallToActionMapping, sortedCallToAction } from './call-to-action';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-ad-authoring',
@@ -11,25 +12,27 @@ import { CallToActionEnum, CallToActionMapping, sortedCallToAction } from './cal
 })
 export class AdAuthoringComponent {
 
-  public CallToActionMapping = CallToActionMapping;
-
-  public callToActionValues = sortedCallToAction;
-
   adAuthoringObs: Observable<AdAuthoringWorkflowState>;
 
+  landingPageUrl = "";
+
+  public CallToActionMapping = CallToActionMapping;
+  public callToActionValues = sortedCallToAction;
+
   constructor(private service: AdAuthoringService) {
-    this.adAuthoringObs = service.getAdAuthorings();
+    this.adAuthoringObs = service.getAdAuthorings().pipe(tap(state => console.log(state)));
   }
 
-  addLandingUrl(landingUrl: string) {
-    this.service.addLandingUrl(landingUrl);
+  updateLandingUrl(landingUrl: string) {
+    this.service.updateLandingUrl(landingUrl);
   }
 
-  addLandingType(landingType: string) {
-    this.service.addLandingType(landingType);
+  updateLandingType(landingType: string) {
+    this.service.updateLandingType(landingType);
   }
 
-  addCallToAction(callToAction: string) {
-    this.service.addCallToAction(callToAction);
+  updateCallToAction(callToAction: CallToActionEnum) {
+    console.log("Updating call to action")
+    this.service.updateCallToAction(callToAction);
   }
 }
