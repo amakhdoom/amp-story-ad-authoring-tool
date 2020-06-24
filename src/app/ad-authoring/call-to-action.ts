@@ -46,9 +46,8 @@ export const CallToActionMapping: Record<CallToActionEnum, string> = {
     [CallToActionEnum.WATCH_EPISODE]: 'Watch Episode'
 } as const;
 
-let callToActionValues = Object.keys(CallToActionEnum);
+export const sortedCallToAction = Object.keys(CallToActionEnum).sort();
 
-function callToActionSort (callToActionValues: Array<string>) {
-    return callToActionValues.sort()
-}
-export const sortedCallToAction = callToActionSort(callToActionValues);
+// function callToActionSort (callToActionEnum) {
+
+// }
