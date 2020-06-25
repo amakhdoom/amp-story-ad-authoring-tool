@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Observable, BehaviorSubject} from 'rxjs';
 import { CallToActionEnum } from './call-to-action';
+import { LandingTypeEnum } from './landing-type-values';
+
 
 export interface AdAuthoringWorkflowState {
   readonly landingUrl?: string;
-  readonly landingType?: string;
+  readonly landingType?: LandingTypeEnum;
   readonly callToAction?: CallToActionEnum;
 }
 // add a default state for the fields above

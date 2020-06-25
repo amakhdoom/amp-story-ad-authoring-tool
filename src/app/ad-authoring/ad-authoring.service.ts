@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AdAuthoringWorkflowState, AdAuthoringWorkflowStateContainer } from './ad-authoring.state';
 import {Observable} from 'rxjs';
 import { CallToActionEnum } from './call-to-action';
+import { LandingTypeEnum } from './landing-type-values';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class AdAuthoringService {
     });
   }
 
-  updateLandingType(landingType: string) {
+  updateLandingType(landingType: LandingTypeEnum) {
     this.adAuthoringState.setState({
       ...this.adAuthoringState.getValue(), landingType
     });
