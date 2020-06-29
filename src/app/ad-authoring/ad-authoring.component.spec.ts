@@ -3,9 +3,10 @@ import {HarnessLoader} from '@angular/cdk/testing';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 import {MatButtonHarness} from '@angular/material/button/testing';
 import {MatSelectHarness} from '@angular/material/select/testing';
+import {MatExpansionPanelHarness} from '@angular/material/expansion/testing'
+import {AppModule} from '../app.module'
 
 import { AdAuthoringComponent } from './ad-authoring.component';
-import { CallToActionMapping } from './call-to-action';
 
 let loader: HarnessLoader;
 
@@ -13,14 +14,14 @@ describe('AdAuthoringComponent', () => {
   let component: AdAuthoringComponent;
   let fixture: ComponentFixture<AdAuthoringComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ AdAuthoringComponent ]
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [AppModule]
     })
     .compileComponents();
-  }));
+  });
 
-  beforeEach(() => {
+  beforeEach(async () => {
     fixture = TestBed.createComponent(AdAuthoringComponent);
     loader = TestbedHarnessEnvironment.loader(fixture);
     component = fixture.componentInstance;
@@ -31,12 +32,21 @@ describe('AdAuthoringComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should work', async () => {
-  //   const buttons = await loader.getAllHarnesses(MatButtonHarness); // len
-  // });
+  it('should have correct number of mat selects', async () => {
+    const selects = await loader.getAllHarnesses(MatSelectHarness);
+    const expansion = await loader.getHarness(MatExpansionPanelHarness);
+    await expansion.expand();
+    expect(selects.length).toEqual(2);
+  });
 
-  // it('should have correct call to action value from enum', () => {
-  //   expect(CallToActionMapping['APPLY_NOW']).toBe('Apply Now');
-  // });
-  //load mat select and mat inputs
+  it('should have the correct number of options for landing type select', async () => {
+    const expansion = await loader.getHarness(MatExpansionPanelHarness);
+    await expansion.expand();
+    const landingTypeSelect = await loader.getHarness(MatSelectHarness.with({
+      selector: '.landingPage'
+    }));
+    await landingTypeSelect.open();
+    const typeOptions = await landingTypeSelect.getOptions();
+    expect(typeOptions.length).toBe(3);
+  });
 });

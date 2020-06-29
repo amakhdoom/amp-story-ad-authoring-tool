@@ -28,7 +28,7 @@
                 (change)="updateLandingType(landingType.value)"/> -->
 
             <mat-label>Landing Page Type</mat-label>
-            <mat-select #landingType (selectionChange)="updateLandingType(landingType.value)">
+            <mat-select class='landingPage' #landingType (selectionChange)="updateLandingType(landingType.value)">
                 <mat-option *ngFor="let landingTypeValue of landingTypeValues" 
                     [value]="LandingTypeMapping[landingTypeValue]">
                     {{LandingTypeMapping[landingTypeValue]}}
