@@ -28,7 +28,10 @@
                 (change)="updateLandingType(landingType.value)"/> -->
 
             <mat-label>Landing Page Type</mat-label>
-            <mat-select class='landingPage' #landingType (selectionChange)="updateLandingType(landingType.value)">
+            <mat-select 
+                class='landingPage' 
+                #landingType 
+                (selectionChange)="updateLandingType(landingType.value)">
                 <mat-option *ngFor="let landingTypeValue of landingTypeValues" 
                     [value]="LandingTypeMapping[landingTypeValue]">
                     {{LandingTypeMapping[landingTypeValue]}}
@@ -40,7 +43,10 @@
 
         <mat-form-field>
             <mat-label>Call to Action Text</mat-label>
-            <mat-select #callToAction (selectionChange)="updateCallToAction($event.value)">
+            <mat-select 
+                class='callToAction' 
+                #callToAction 
+                (selectionChange)="updateCallToAction($event.value)">
                 <mat-option *ngFor="let callToActionValue of callToActionValues" 
                     [value]="CallToActionMapping[callToActionValue]">
                     {{CallToActionMapping[callToActionValue]}}
