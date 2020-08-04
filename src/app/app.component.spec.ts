@@ -21,11 +21,9 @@ import {AppComponent} from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
-    TestBed
-        .configureTestingModule({
-          declarations: [AppComponent],
-        })
-        .compileComponents();
+    TestBed.configureTestingModule({
+      declarations: [AppComponent],
+    }).compileComponents();
   }));
 
   it('should create the app', () => {
@@ -34,7 +32,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'amp-story-ad-authoring-tool'`, () => {
+  it("should have as title 'amp-story-ad-authoring-tool'", () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('amp-story-ad-authoring-tool');
